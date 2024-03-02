@@ -5,7 +5,7 @@ import { Square } from "./componets/Square.jsx";
 import { TURNS, WinnerCombos } from "./Constans.jsx";
 import { checkWinner } from "./logic/boards";
 import { WinnerModal } from "./componets/WinnerModal.jsx";
-
+import { chekEndGame } from "./logic/boards";
 function App() {
   const [board, setBoard]= useState (Array(9).fill(null))
 
@@ -24,9 +24,7 @@ function App() {
       const newTurn = turn === TURNS.x ? TURNS.o : TURNS.x
       setTurn(newTurn)
 
-      const chekEndGame = (newBoard) =>{
-        return newBoard.every(Square => Square !== null)
-      }
+     
 
       const newWinner = checkWinner(newBoard)
       if(newWinner){
